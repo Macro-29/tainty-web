@@ -2,52 +2,52 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,700;1,800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
   width:1200px;height:630px;overflow:hidden;
-  background:#0d0d0f;
-  font-family:'DM Sans',sans-serif;color:#f0efe8;
+  background:
+    linear-gradient(125deg, rgba(245,211,94,.18) 0%, transparent 24%),
+    linear-gradient(305deg, rgba(45,91,240,.35) 0%, transparent 28%),
+    linear-gradient(160deg, #0a1530, #0d1b3e 45%, #13265a);
+  font-family:'Poppins',sans-serif;color:#fff;
   display:flex;align-items:center;justify-content:center;
   position:relative;
 }
-body::before{
-  content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 55% 65% at 50% -10%, rgba(124,111,239,.30), transparent),
-    radial-gradient(ellipse 40% 45% at 90% 110%, rgba(62,207,142,.12), transparent);
-}
+.streak1,.streak2{position:absolute;height:4px;width:46%;}
+.streak1{top:13%;left:-8%;transform:rotate(-32deg);background:linear-gradient(90deg,transparent,#f5d35e,transparent)}
+.streak2{bottom:15%;right:-8%;transform:rotate(-32deg);background:linear-gradient(90deg,transparent,#4d7bff,transparent)}
 .box{position:relative;text-align:center;padding:0 80px}
-.pill{
-  display:inline-block;margin-bottom:34px;
-  transform:rotate(45deg);
-  width:64px;height:130px;position:relative;
+.logo-img{
+  width:130px;height:130px;border-radius:28px;
+  background:#fff;padding:14px;margin:0 auto 30px;
+  box-shadow:0 12px 40px rgba(0,0,0,.4);
 }
-.pill .top{position:absolute;inset:0;border-radius:32px;background:#7c6fef}
-.pill .bottom{position:absolute;left:0;right:0;bottom:0;height:50%;border-radius:0 0 32px 32px;background:#f0efe8}
-.pill .shine{position:absolute;left:12px;top:14px;width:11px;height:44px;border-radius:6px;background:rgba(255,255,255,.45)}
-.logo{
-  font-family:'Syne',sans-serif;font-weight:800;
-  font-size:88px;letter-spacing:.08em;line-height:1;
+.logo-img img{width:100%;height:100%}
+.name{
+  font-weight:800;font-style:italic;
+  font-size:84px;letter-spacing:.05em;line-height:1;
+  text-transform:uppercase;
 }
-.logo span{color:#7c6fef}
+.name span{color:#f6a01e}
 .tag{
-  margin-top:26px;font-size:34px;color:#b9b9c6;font-weight:400;
+  margin-top:24px;font-size:33px;color:#c3cdea;font-weight:500;
 }
-.tag b{color:#f0efe8;font-weight:500}
+.tag b{color:#f5d35e;font-weight:700;font-style:italic}
 .foot{
-  position:absolute;bottom:44px;left:0;right:0;
-  text-align:center;font-size:24px;color:#7c6fef;
-  letter-spacing:.05em;font-weight:500;
+  position:absolute;bottom:42px;left:0;right:0;
+  text-align:center;font-size:24px;color:#f6a01e;
+  letter-spacing:.05em;font-weight:700;font-style:italic;
 }
 </style>
 </head>
 <body>
+  <div class="streak1"></div><div class="streak2"></div>
   <div class="box">
-    <div class="pill"><div class="top"></div><div class="bottom"></div><div class="shine"></div></div>
-    <div class="logo">TAIN<span>TY</span></div>
-    <div class="tag">Fabricamos <b>los productos de tu marca</b> — suplementos,<br>dermocosmética y más · desde 100 unidades</div>
+    <div class="logo-img"><img src="img/logo.png" alt=""></div>
+    <div class="name">Tainty <span>Labs</span></div>
+    <div class="tag">Fabricamos <b>los productos de tu marca</b><br>suplementos, cosmética y más · desde 100 unidades</div>
   </div>
   <div class="foot">taintycorporation.pe</div>
 </body>
