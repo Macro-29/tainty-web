@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tainty — Fabricación de suplementos y productos para tu marca | Lima, Perú</title>
+<meta name="description" content="Tainty Corporation Trading SAC: fabricamos suplementos, dermocosmética, cuidado capilar y más para tu marca. Lotes desde 100 unidades, formulación, envasado y etiquetado. Lima, Perú.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0d0f;
+  --surface:#16161a;
+  --surface2:#1e1e24;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.12);
+  --text:#f0efe8;
+  --muted:#9a9aaa;
+  --hint:#6a6a7a;
+  --purple:#7c6fef;
+  --purple-dim:rgba(124,111,239,0.15);
+  --green:#3ecf8e;
+  --green-dim:rgba(62,207,142,0.12);
+  --wa:#25d366;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+h1,h2,h3{font-family:'Syne',sans-serif;line-height:1.15}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+
+/* Topbar */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(13,13,15,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.topbar-inner{
+  max-width:1080px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.9rem 1.5rem;
+}
+.logo{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:18px;letter-spacing:.08em;text-transform:uppercase;
+}
+.logo span{color:var(--purple)}
+nav{display:flex;gap:1.6rem;font-size:14px;color:var(--muted)}
+nav a:hover{color:var(--text)}
+.nav-cta{
+  background:var(--purple);color:#fff;
+  padding:.45rem 1.1rem;border-radius:24px;
+  font-size:13px;font-weight:700;
+}
+.nav-cta:hover{opacity:.9;color:#fff}
+@media(max-width:760px){nav a:not(.nav-cta){display:none}}
+
+/* Hero */
+.hero{
+  position:relative;overflow:hidden;
+  padding:6.5rem 0 5.5rem;
+  text-align:center;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% -10%, rgba(124,111,239,.22), transparent),
+    radial-gradient(ellipse 40% 35% at 85% 100%, rgba(62,207,142,.08), transparent);
+  pointer-events:none;
+}
+.hero .wrap{position:relative}
+.hero-badge{
+  display:inline-block;
+  font-size:12.5px;font-weight:500;letter-spacing:.04em;
+  color:var(--purple);background:var(--purple-dim);
+  border:1px solid rgba(124,111,239,.3);
+  padding:.35rem 1rem;border-radius:24px;
+  margin-bottom:1.4rem;
+}
+.hero h1{
+  font-size:clamp(2.1rem,5.4vw,3.6rem);
+  font-weight:800;margin-bottom:1.2rem;
+  letter-spacing:-.01em;
+}
+.hero h1 em{font-style:normal;color:var(--purple)}
+.hero p{
+  font-size:clamp(1rem,2vw,1.15rem);
+  color:var(--muted);max-width:620px;margin:0 auto 2.2rem;
+}
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.85rem 1.8rem;border-radius:32px;
+  font-size:15px;font-weight:700;
+  transition:transform .15s,opacity .15s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-wa{background:var(--wa);color:#08140c}
+.btn-ghost{border:1px solid var(--border2);color:var(--text)}
+.hero-stats{
+  display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap;
+  margin-top:3.2rem;
+}
+.stat b{
+  display:block;font-family:'Syne',sans-serif;
+  font-size:1.7rem;font-weight:800;color:var(--text);
+}
+.stat span{font-size:13px;color:var(--hint)}
+
+/* Sections */
+section{padding:4.5rem 0}
+.sec-tag{
+  font-size:12.5px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--purple);
+  margin-bottom:.6rem;
+}
+.sec-title{font-size:clamp(1.5rem,3.4vw,2.2rem);font-weight:700;margin-bottom:.8rem}
+.sec-sub{color:var(--muted);max-width:640px;margin-bottom:2.6rem}
+
+/* Cards */
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:1.7rem;
+}
+.card:hover{border-color:var(--border2)}
+.card .icon{
+  width:44px;height:44px;border-radius:12px;
+  background:var(--purple-dim);
+  display:flex;align-items:center;justify-content:center;
+  font-size:21px;margin-bottom:1.1rem;
+}
+.card h3{font-size:1.05rem;margin-bottom:.5rem}
+.card p{font-size:14px;color:var(--muted)}
+
+/* Catálogo */
+#catalogo{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
+.cat-card{
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:1.6rem;
+}
+.cat-card:hover{border-color:rgba(124,111,239,.4)}
+.cat-head{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+.cat-head .icon{
+  width:40px;height:40px;border-radius:11px;flex-shrink:0;
+  background:var(--purple-dim);
+  display:flex;align-items:center;justify-content:center;font-size:19px;
+}
+.cat-head h3{font-size:1rem}
+.cat-card ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.cat-card li{
+  font-size:13.5px;color:var(--muted);
+  padding-left:1.1rem;position:relative;
+}
+.cat-card li::before{
+  content:'';position:absolute;left:0;top:.55em;
+  width:5px;height:5px;border-radius:50%;background:var(--purple);
+}
+.cat-note{
+  margin-top:2rem;text-align:center;
+  font-size:14px;color:var(--hint);
+}
+.cat-note a{color:var(--purple);font-weight:500}
+
+/* Proceso */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;counter-reset:step}
+.step{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:1.6rem;
+  counter-increment:step;
+}
+.step::before{
+  content:counter(step,decimal-leading-zero);
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:1.5rem;color:var(--purple);
+  display:block;margin-bottom:.7rem;
+}
+.step h3{font-size:1rem;margin-bottom:.4rem}
+.step p{font-size:13.5px;color:var(--muted)}
+
+/* Contacto */
+#contacto{text-align:center;padding:5.5rem 0}
+#contacto .sec-sub{margin-left:auto;margin-right:auto}
+.contact-box{
+  background:linear-gradient(160deg,var(--surface2),var(--surface));
+  border:1px solid var(--border2);
+  border-radius:22px;
+  padding:3rem 2rem;
+  max-width:680px;margin:0 auto;
+}
+
+/* WhatsApp flotante */
+.wa-float{
+  position:fixed;right:1.3rem;bottom:1.3rem;z-index:60;
+  width:56px;height:56px;border-radius:50%;
+  background:var(--wa);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 22px rgba(37,211,102,.35);
+  transition:transform .15s;
+}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px;fill:#08140c}
+
+/* Footer */
+footer{
+  border-top:1px solid var(--border);
+  padding:2.2rem 0;
+  font-size:13px;color:var(--hint);
+}
+.foot-inner{
+  max-width:1080px;margin:0 auto;padding:0 1.5rem;
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">TAIN<span>TY</span></div>
+    <nav>
+      <a href="#que-hacemos">Qué hacemos</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto" class="nav-cta">Cotizar</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-badge">Fabricación por encargo · Lima, Perú</div>
+    <h1>Creamos los productos<br>de <em>tu marca</em></h1>
+    <p>Fabricamos suplementos, dermocosmética, cuidado capilar y productos especializados con tu etiqueta. Tú pones la marca; nosotros la formulación, producción y envasado.</p>
+    <div class="hero-actions">
+      <a class="btn btn-wa wa-link" href="#" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.89-9.9 9.89m8.42-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.47-8.41"/></svg>
+        Cotiza por WhatsApp
+      </a>
+      <a class="btn btn-ghost" href="#catalogo">Ver catálogo</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>+35</b><span>fórmulas producidas</span></div>
+      <div class="stat"><b>100</b><span>unidades de lote mínimo</span></div>
+      <div class="stat"><b>6</b><span>líneas de producto</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="que-hacemos">
+  <div class="wrap">
+    <div class="sec-tag">Qué hacemos</div>
+    <h2 class="sec-title">Tu marca, nuestra fábrica</h2>
+    <p class="sec-sub">Nos encargamos de todo el proceso productivo para que tú te concentres en vender. Trabajamos con emprendedores que lanzan su primera marca y con empresas que escalan su producción.</p>
+    <div class="grid3">
+      <div class="card">
+        <div class="icon">🧪</div>
+        <h3>Formulación</h3>
+        <p>Desarrollamos o adaptamos la fórmula de tu producto con insumos de proveedores especializados: extractos, vitaminas, minerales y activos de calidad.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🏭</div>
+        <h3>Producción y envasado</h3>
+        <p>Encapsulado, mezclas en polvo, líquidos, sprays y cremas. Envases con sellado de seguridad (liner de aluminio) y presentación lista para venta.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🏷️</div>
+        <h3>Etiquetado y caja</h3>
+        <p>Etiquetas laminadas con tu diseño y marca, y cajas personalizadas para que tu producto llegue al cliente final con presentación profesional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="catalogo">
+  <div class="wrap">
+    <div class="sec-tag">Catálogo</div>
+    <h2 class="sec-title">Líneas que fabricamos</h2>
+    <p class="sec-sub">Estas son nuestras líneas de producción y algunos de los tipos de producto que ya fabricamos para marcas como la tuya. Si tu idea no está en la lista, conversemos: la desarrollamos juntos.</p>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-head"><div class="icon">💊</div><h3>Suplementos en cápsulas</h3></div>
+        <ul>
+          <li>Detox hepático y digestivo</li>
+          <li>Probióticos y salud íntima</li>
+          <li>Multivitamínicos e inositol</li>
+          <li>Magnesio complex 12 en 1</li>
+          <li>Memoria, ánimo y concentración</li>
+          <li>Crecimiento capilar y antimanchas</li>
+          <li>Aceite de orégano, alivio neuropático</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-head"><div class="icon">🥤</div><h3>Suplementos en polvo</h3></div>
+        <ul>
+          <li>Creatina monohidratada</li>
+          <li>Mezclas deportivas y nutricionales</li>
+          <li>Polvos dentales (nano-hidroxiapatita)</li>
+          <li>Presentaciones de 100 a 240 g</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-head"><div class="icon">💧</div><h3>Gotas, sprays y tónicos</h3></div>
+        <ul>
+          <li>Sprays de uso personal</li>
+          <li>Gotas y tónicos de bienestar</li>
+          <li>Drenaje linfático</li>
+          <li>Fórmulas para mascotas (uso oral)</li>
+          <li>Presentaciones de 10 a 250 ml</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-head"><div class="icon">🧴</div><h3>Cuidado capilar</h3></div>
+        <ul>
+          <li>Shampoos anticaída y reparadores</li>
+          <li>Tratamientos con minoxidil</li>
+          <li>Keratinas y tónicos de crecimiento</li>
+          <li>Lociones para barba y cejas</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-head"><div class="icon">✨</div><h3>Dermocosmética</h3></div>
+        <ul>
+          <li>Cremas antiedad y contorno de ojos</li>
+          <li>Tratamientos antiacné y antimanchas</li>
+          <li>Depilatorios y cuidado de la piel</li>
+          <li>Cremas y geles de 15 a 100 g</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-head"><div class="icon">🧼</div><h3>Hogar y limpieza</h3></div>
+        <ul>
+          <li>Detergentes especializados</li>
+          <li>Removedores de óxido</li>
+          <li>Limpiadores multiusos</li>
+          <li>Presentaciones de 60 g a 500 ml</li>
+        </ul>
+      </div>
+    </div>
+    <p class="cat-note">¿Tienes un producto en mente que no ves aquí? <a href="#" class="wa-link" target="_blank" rel="noopener">Escríbenos</a> y evaluamos su desarrollo sin compromiso.</p>
+  </div>
+</section>
+
+<section id="beneficios">
+  <div class="wrap">
+    <div class="sec-tag">Beneficios</div>
+    <h2 class="sec-title">Por qué producir con Tainty</h2>
+    <p class="sec-sub">Pensado para que lanzar o escalar tu marca sea simple, rentable y sin sorpresas.</p>
+    <div class="grid3">
+      <div class="card">
+        <div class="icon">📦</div>
+        <h3>Lotes desde 100 unidades</h3>
+        <p>Empieza con una inversión pequeña y valida tu producto en el mercado. Escala a 300, 500 o 1000 unidades cuando tu marca crezca, con mejores costos por volumen.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🤝</div>
+        <h3>Confidencialidad total</h3>
+        <p>Tu fórmula y tu marca son tuyas. No publicamos ni compartimos los productos que fabricamos para nuestros clientes.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔍</div>
+        <h3>Insumos verificados</h3>
+        <p>Trabajamos con proveedores especializados de extractos, cápsulas, envases y etiquetas, seleccionados por calidad y consistencia.</p>
+      </div>
+      <div class="card">
+        <div class="icon">💰</div>
+        <h3>Costos transparentes</h3>
+        <p>Cotización detallada por escala de producción antes de empezar. Sabes exactamente cuánto cuesta tu producto terminado.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎨</div>
+        <h3>Producto listo para vender</h3>
+        <p>Recibes tu producto etiquetado, sellado y encajado con tu diseño. Solo te falta publicarlo y empezar a vender.</p>
+      </div>
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Atención directa</h3>
+        <p>Hablas directo con el equipo de producción por WhatsApp, sin intermediarios. Seguimiento de tu pedido en cada etapa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proceso">
+  <div class="wrap">
+    <div class="sec-tag">Proceso</div>
+    <h2 class="sec-title">De la idea a tu producto en 4 pasos</h2>
+    <div class="steps">
+      <div class="step">
+        <h3>Cuéntanos tu idea</h3>
+        <p>Escríbenos por WhatsApp qué producto quieres lanzar y para qué público.</p>
+      </div>
+      <div class="step">
+        <h3>Cotización a medida</h3>
+        <p>Te enviamos el costeo detallado por escala (100, 300, 500 o 1000 unidades) con insumos, envase y etiqueta.</p>
+      </div>
+      <div class="step">
+        <h3>Producción</h3>
+        <p>Aprobada la cotización, producimos tu lote con seguimiento en cada etapa del proceso.</p>
+      </div>
+      <div class="step">
+        <h3>Entrega</h3>
+        <p>Recibes tu producto terminado, etiquetado con tu marca y listo para la venta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="contact-box">
+      <div class="sec-tag">Contacto</div>
+      <h2 class="sec-title">¿Listo para lanzar tu marca?</h2>
+      <p class="sec-sub">Cuéntanos qué producto tienes en mente y te respondemos con una cotización a medida. Sin compromiso.</p>
+      <a class="btn btn-wa wa-link" href="#" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.89-9.9 9.89m8.42-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.47-8.41"/></svg>
+        Escríbenos por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<a class="wa-float wa-link" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.89-9.9 9.89m8.42-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.47-8.41"/></svg>
+</a>
+
+<footer>
+  <div class="foot-inner">
+    <div>© <span id="year"></span> Tainty Corporation Trading S.A.C. — Lima, Perú</div>
+    <div>Fabricación de suplementos y productos especializados</div>
+  </div>
+</footer>
+
+<script>
+/* ===== CONFIGURACIÓN =====
+   Cambia aquí el número de WhatsApp (código de país + número, sin espacios ni +) */
+const WHATSAPP = '51999999999';
+const WA_MSG = 'Hola Tainty, vi su página web y quiero cotizar un producto para mi marca.';
+
+const waUrl = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(WA_MSG);
+document.querySelectorAll('.wa-link').forEach(a => a.href = waUrl);
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
