@@ -62,7 +62,30 @@
   --muted:#5a6b8c;
   --border:#e3e8f4;
   --wa:#25d366;
+  /* tokens que cambian entre claro/oscuro */
+  --heading:#0d1b3e;
+  --surface:#ffffff;
+  --topbar-bg:rgba(255,255,255,.92);
+  --card-shadow:rgba(13,27,62,.04);
+  --card-shadow-hover:rgba(13,27,62,.08);
 }
+/* ===== Modo oscuro ===== */
+html.dark{
+  --bg:#0a1124;
+  --bg-soft:#0d1630;
+  --text:#dde4f5;
+  --muted:#94a3c4;
+  --border:rgba(255,255,255,.10);
+  --blue-soft:rgba(45,91,240,.20);
+  --royal:#7da0ff;
+  --heading:#eef2fc;
+  --surface:#121d3a;
+  --topbar-bg:rgba(10,17,36,.9);
+  --card-shadow:rgba(0,0,0,.35);
+  --card-shadow-hover:rgba(0,0,0,.5);
+}
+html{color-scheme:light}
+html.dark{color-scheme:dark}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
@@ -80,7 +103,7 @@ img{max-width:100%;display:block}
 /* Topbar */
 .topbar{
   position:sticky;top:0;z-index:50;
-  background:rgba(255,255,255,.92);
+  background:var(--topbar-bg);
   backdrop-filter:blur(12px);
   border-bottom:1px solid var(--border);
 }
@@ -93,11 +116,23 @@ img{max-width:100%;display:block}
 .brand img{width:38px;height:38px}
 .brand .name{
   font-weight:800;font-size:17px;letter-spacing:.04em;
-  color:var(--navy);text-transform:uppercase;
+  color:var(--heading);text-transform:uppercase;
 }
 .brand .name span{color:var(--orange)}
 nav{display:flex;gap:1.5rem;align-items:center;font-size:14px;color:var(--muted);font-weight:500}
-nav a:hover{color:var(--navy)}
+nav a:hover{color:var(--heading)}
+.theme-toggle{
+  width:34px;height:34px;flex-shrink:0;
+  border:1px solid var(--border);border-radius:50%;
+  background:transparent;color:var(--heading);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,border-color .2s;
+}
+.theme-toggle:hover{background:var(--blue-soft);border-color:var(--blue)}
+.theme-toggle svg{width:18px;height:18px}
+.theme-toggle .icon-sun{display:none}
+html.dark .theme-toggle .icon-sun{display:block}
+html.dark .theme-toggle .icon-moon{display:none}
 .nav-cta{
   background:var(--orange);color:var(--navy);
   padding:.5rem 1.2rem;border-radius:26px;
@@ -176,7 +211,7 @@ section{padding:4.5rem 0}
 }
 .sec-title{
   font-size:clamp(1.5rem,3.4vw,2.15rem);
-  color:var(--navy);font-style:italic;
+  color:var(--heading);font-style:italic;
   margin-bottom:.8rem;
 }
 .sec-sub{color:var(--muted);max-width:660px;margin-bottom:2.6rem;font-size:15px}
@@ -184,20 +219,20 @@ section{padding:4.5rem 0}
 /* Cards genéricas */
 .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1.2rem}
 .card{
-  background:#fff;
+  background:var(--surface);
   border:1px solid var(--border);
   border-radius:16px;
   padding:1.7rem;
-  box-shadow:0 1px 3px rgba(13,27,62,.04);
+  box-shadow:0 1px 3px var(--card-shadow);
 }
-.card:hover{box-shadow:0 8px 24px rgba(13,27,62,.08)}
+.card:hover{box-shadow:0 8px 24px var(--card-shadow-hover)}
 .card .icon{
   width:46px;height:46px;border-radius:12px;
   background:var(--blue-soft);
   display:flex;align-items:center;justify-content:center;
   font-size:22px;margin-bottom:1.1rem;
 }
-.card h3{font-size:1.02rem;color:var(--navy);margin-bottom:.5rem}
+.card h3{font-size:1.02rem;color:var(--heading);margin-bottom:.5rem}
 .card p{font-size:14px;color:var(--muted)}
 
 #que-hacemos{background:var(--bg-soft)}
@@ -205,15 +240,15 @@ section{padding:4.5rem 0}
 /* Catálogo */
 .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem}
 .cat-card{
-  background:#fff;
+  background:var(--surface);
   border:1px solid var(--border);
   border-radius:18px;
   overflow:hidden;
   display:flex;flex-direction:column;
-  box-shadow:0 1px 3px rgba(13,27,62,.04);
+  box-shadow:0 1px 3px var(--card-shadow);
   transition:box-shadow .2s,transform .2s;
 }
-.cat-card:hover{box-shadow:0 12px 30px rgba(13,27,62,.10);transform:translateY(-3px)}
+.cat-card:hover{box-shadow:0 12px 30px var(--card-shadow-hover);transform:translateY(-3px)}
 .cat-photo{
   background:linear-gradient(180deg,#fafbfe,#eef1f8);
   height:190px;display:flex;align-items:center;justify-content:center;
@@ -221,7 +256,7 @@ section{padding:4.5rem 0}
 }
 .cat-photo img{max-height:100%;width:auto;mix-blend-mode:multiply}
 .cat-body{padding:1.3rem 1.4rem 1.5rem;display:flex;flex-direction:column;flex:1}
-.cat-body h3{font-size:1.02rem;color:var(--navy);font-style:italic;margin-bottom:.6rem}
+.cat-body h3{font-size:1.02rem;color:var(--heading);font-style:italic;margin-bottom:.6rem}
 .cat-body ul{list-style:none;display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
 .cat-body li{
   font-size:13px;color:var(--muted);
@@ -266,7 +301,7 @@ section{padding:4.5rem 0}
 #proceso{background:var(--bg-soft)}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;counter-reset:step;margin-bottom:2.2rem}
 .step{
-  background:#fff;border:1px solid var(--border);
+  background:var(--surface);border:1px solid var(--border);
   border-radius:16px;padding:1.6rem;counter-increment:step;
 }
 .step::before{
@@ -275,7 +310,7 @@ section{padding:4.5rem 0}
   font-size:1.5rem;color:var(--orange);
   display:block;margin-bottom:.6rem;
 }
-.step h3{font-size:.98rem;color:var(--navy);margin-bottom:.4rem}
+.step h3{font-size:.98rem;color:var(--heading);margin-bottom:.4rem}
 .step p{font-size:13.5px;color:var(--muted)}
 .cotiza-band{
   background:var(--blue);border-radius:18px;
@@ -336,7 +371,45 @@ footer{
 }
 .foot-brand{display:flex;align-items:center;gap:.5rem;color:#fff;font-weight:700}
 .foot-brand img{width:26px;height:26px;border-radius:6px;background:#fff;padding:2px}
+
+/* ===== Animaciones al hacer scroll ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(34px);
+  transition:opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);
+  transition-delay:var(--reveal-delay, 0s);
+  will-change:opacity, transform;
+}
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+/* Entrada del hero al cargar */
+.hero-anim{
+  opacity:0;
+  transform:translateY(26px);
+  animation:heroUp .8s cubic-bezier(.22,.61,.36,1) forwards;
+  animation-delay:var(--hero-delay, 0s);
+}
+@keyframes heroUp{to{opacity:1;transform:none}}
+
+/* Si el usuario prefiere menos movimiento, desactivamos todo */
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero-anim{opacity:1;transform:none;animation:none}
+}
 </style>
+<script>
+/* Aplica el tema guardado (o el del sistema) ANTES de pintar, para evitar parpadeo */
+(function(){
+  try{
+    var saved = localStorage.getItem('tainty-theme');
+    var dark = saved ? saved === 'dark'
+                     : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (dark) document.documentElement.classList.add('dark');
+  }catch(e){}
+})();
+</script>
 </head>
 <body>
 
@@ -351,6 +424,10 @@ footer{
       <a href="#catalogo">Catálogo</a>
       <a href="#beneficios">Beneficios</a>
       <a href="#proceso">Proceso</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar modo claro/oscuro" title="Modo claro/oscuro">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
       <a href="#contacto" class="nav-cta">Cotizar</a>
     </nav>
   </div>
@@ -685,6 +762,64 @@ document.querySelectorAll('.wa-cat').forEach(a => {
   a.href = waUrl(WHATSAPP, 'Hola Tainty Labs, quiero cotizar la línea de ' + a.dataset.cat + ' para mi marca.');
 });
 document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ===== Botón modo claro / oscuro ===== */
+(function(){
+  const btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark');
+    try { localStorage.setItem('tainty-theme', isDark ? 'dark' : 'light'); } catch(e){}
+  });
+})();
+
+/* ===== Animación al hacer scroll =====
+   Cada elemento aparece deslizándose cuando entra en pantalla.
+   Los elementos de una misma fila/grupo entran escalonados (uno tras otro). */
+(function(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Entrada del hero al cargar (escalonada) */
+  const heroEls = document.querySelectorAll('.hero .hero-badge, .hero h1, .hero p, .hero .hero-actions, .hero .hero-stats');
+  heroEls.forEach((el, i) => {
+    el.classList.add('hero-anim');
+    el.style.setProperty('--hero-delay', (i * 0.12) + 's');
+  });
+  if (reduce) return; // el CSS ya deja todo visible
+
+  /* Grupos a animar al hacer scroll. Dentro de cada grupo, los hijos se escalonan. */
+  const groups = [
+    ['#que-hacemos .sec-tag, #que-hacemos .sec-title, #que-hacemos .sec-sub'],
+    ['#que-hacemos .card'],
+    ['#catalogo .sec-tag, #catalogo .sec-title, #catalogo .sec-sub'],
+    ['#catalogo .cat-card'],
+    ['.incluye h2, .incluye p, .incluye .chip'],
+    ['#beneficios .sec-tag, #beneficios .sec-title, #beneficios .sec-sub'],
+    ['#beneficios .card'],
+    ['#proceso .sec-tag, #proceso .sec-title, #proceso .sec-sub'],
+    ['#proceso .step'],
+    ['#proceso .cotiza-band'],
+    ['#contacto .contact-box']
+  ];
+  groups.forEach(sel => {
+    const els = document.querySelectorAll(sel[0]);
+    els.forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.setProperty('--reveal-delay', Math.min(i * 0.09, 0.45) + 's');
+    });
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting){
+        e.target.classList.add('visible');
+        io.unobserve(e.target); // anima una sola vez
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
 </script>
 
 </body>
