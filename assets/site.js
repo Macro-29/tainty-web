@@ -4,7 +4,7 @@
 
 /* ===== Configuración de WhatsApp =====
    Números: código de país + número, sin espacios ni + */
-const WHATSAPP  = '51912564306';
+const WHATSAPP  = '51912564249';
 const WHATSAPP2 = '51932491316';
 const WA_MSG = 'Hola Tainty Labs, vi su página web y quiero cotizar un producto para mi marca.';
 
