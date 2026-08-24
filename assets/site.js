@@ -3,14 +3,12 @@
    ========================================================= */
 
 /* ===== Configuración de WhatsApp =====
-   Números: código de país + número, sin espacios ni + */
-const WHATSAPP  = '51912564249';
-const WHATSAPP2 = '51932491316';
+   Número: código de país + número, sin espacios ni + */
+const WHATSAPP  = '51932491316';
 const WA_MSG = 'Hola Tainty Labs, vi su página web y quiero cotizar un producto para mi marca.';
 
 const waUrl = (num, msg) => 'https://wa.me/' + num + '?text=' + encodeURIComponent(msg);
 document.querySelectorAll('.wa-link').forEach(a => a.href = waUrl(WHATSAPP, WA_MSG));
-document.querySelectorAll('.wa-link2').forEach(a => a.href = waUrl(WHATSAPP2, WA_MSG));
 document.querySelectorAll('.wa-cat').forEach(a => {
   a.href = waUrl(WHATSAPP, 'Hola Tainty Labs, quiero cotizar la línea de ' + a.dataset.cat + ' para mi marca.');
 });
